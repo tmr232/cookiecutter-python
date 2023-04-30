@@ -1,0 +1,7 @@
+{
+  "full_name": "Tamir Bahar",
+  "project_name": "Python Application",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_') }}",
+  "description": "",
+  "version": "0.1.0"
+}
