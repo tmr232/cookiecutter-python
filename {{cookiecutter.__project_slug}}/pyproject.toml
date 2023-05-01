@@ -22,25 +22,26 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 
+[tool.black]
+line-length = {{ cookiecutter._line_length }}
+
+
 [tool.isort]
 # Configure isort to work without access to site-packages
-known_first_party = ["mdformat_wikilink", "tests"]
+known_first_party = ["{{ cookiecutter.__package_name }}", "tests"]
 
 # Settings for Black compatibility
 profile = "black"
+line_length = {{ cookiecutter._line_length }}
+
 
 [tool.mypy]
 check_untyped_defs = true
 
+
 [tool.pytest.ini_options]
 xfail_strict = true
-addopts = "-ra -q --cov={{ cookiecutter.__project_slug }} --cov-report=xml --cov-report=term-missing"
+addopts = "-ra -q --cov={{ cookiecutter.__package_name }} --cov-report=xml --cov-report=term-missing"
 testpaths = [
     "tests",
 ]
-
-[tool.isort]
-line_length = {{ cookiecutter._line_length }}
-
-[tool.black]
-line-length = {{ cookiecutter._line_length }}
