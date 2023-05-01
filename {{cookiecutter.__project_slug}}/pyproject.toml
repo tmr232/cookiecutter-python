@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "{{ cookiecutter.project_slug }}"
+name = "{{ cookiecutter.__project_slug }}"
 version = "{{ cookiecutter.version }}"
 description = "{{ cookiecutter.description.replace('\"', '\\\"') }}"
 authors = ["{{ cookiecutter.full_name.replace('\"', '\\\"') }}"]
@@ -34,7 +34,13 @@ check_untyped_defs = true
 
 [tool.pytest.ini_options]
 xfail_strict = true
-addopts = "-ra -q --cov={{ cookiecutter.project_slug }} --cov-report=xml --cov-report=term-missing"
+addopts = "-ra -q --cov={{ cookiecutter.__project_slug }} --cov-report=xml --cov-report=term-missing"
 testpaths = [
     "tests",
 ]
+
+[tool.isort]
+line_length = {{ cookiecutter._line_length }}
+
+[tool.black]
+line-length = {{ cookiecutter._line_length }}
