@@ -7,6 +7,15 @@ license = "MIT"
 readme = "README.md"
 
 
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.dependencies]
+python = "^{{ cookiecutter.python_version}}"
+
+
 [tool.poetry.group.dev.dependencies]
 ruff = "^0.0.261"
 black = "^23.3.0"
@@ -17,14 +26,9 @@ pytest = "^7.3.0"
 pytest-cov = "^4.0.0"
 
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
-
-
 [tool.black]
 line-length = {{ cookiecutter._line_length }}
-
+target-version = ['py{{ cookiecutter.python_version|replace(".", "") }}']
 
 [tool.isort]
 # Configure isort to work without access to site-packages
