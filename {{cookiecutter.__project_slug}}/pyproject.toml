@@ -45,7 +45,7 @@ python_version = "{{ cookiecutter.python_version}}"
 
 [tool.pytest.ini_options]
 xfail_strict = true
-addopts = "-ra -q --cov={{ cookiecutter.__package_name }} --cov-report=xml --cov-report=term-missing"
+addopts = "-ra -q --cov --cov-report=xml --cov-report=term-missing"
 testpaths = [
     "tests",
 ]
@@ -54,3 +54,7 @@ testpaths = [
 [tool.ruff]
 # Avoid automatic removal of unused variables
 unfixable = ['F841'] # unused-variable
+
+
+[tool.coverage]
+report.skip_covered = true
